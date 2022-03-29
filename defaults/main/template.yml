@@ -10,14 +10,15 @@ nginx_config_html_demo_template:
 # Enable creating dynamic templated NGINX configuration files.
 # Defaults are the values found in a fresh NGINX installation.
 # Unless otherwise noted, all variables are *strings* and *optional* (*required* values inside a dictionary are only required if the top level variable is defined).
-nginx_config_main_template_enable: false
+## JACOB's NOTE: Change this to true to execute the Create nginx config play
+nginx_config_main_template_enable: true 
 nginx_config_main_template:
   template_file: nginx.conf.j2
   deployment_location: /etc/nginx/nginx.conf
   backup: true
   config:
     main:  # Configure NGINX main core directives
-      load_module: modules/ngx_http_js_module.so  # String or a list of strings
+      #load_module: modules/ngx_http_js_module.so  # String or a list of strings
         # - modules/ngx_http_js_module.so
       user:  # nginx  # Can alternatively be set to a 'username' string
         username: nginx  # Required
