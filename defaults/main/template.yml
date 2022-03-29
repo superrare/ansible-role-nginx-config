@@ -21,8 +21,8 @@ nginx_config_main_template:
       #load_module: modules/ngx_http_js_module.so  # String or a list of strings
         # - modules/ngx_http_js_module.so
       user:  # nginx  # Can alternatively be set to a 'username' string
-        username: nginx  # Required
-        group: nginx
+        username: ipfs  # Required
+        group: ipfs
       # worker_cpu_affinity:
       #   auto: true  # Optional boolean
       #   cpumask: 0101 1010  # Optional if 'auto' is set to 'true'
