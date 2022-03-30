@@ -347,7 +347,7 @@ nginx_config_http_template:
       #     enable: true  # Required
       #     uri: example.com
       #     port: 80
-      # proxy:  # Configure Proxy
+      proxy:
         # bind:  # Set to 'false' and remove/comment nested variables to disable proxy_bind
         #   address: 0.0.0.0  # Required
         #   transparent: false  # Boolean
@@ -427,10 +427,10 @@ nginx_config_http_template:
       #     # - - $cookie_nocache
       #     #   - $arg_nocache$arg_comment
       #     # - $arg_nocache$arg_comment
-      #   pass: http://127.0.0.1  # Available only in the 'location' context
-      #   pass_header: Date  # String or a list of strings
-      #   pass_request_body: false  # Boolean
-      #   pass_request_headers: true  # Boolean
+        # pass: http://127.0.0.1  # Available only in the 'location' context
+        # pass_header: Date  # String or a list of strings
+        # pass_request_body: false  # Boolean
+        # pass_request_headers: true  # Boolean
       #   read_timeout: 60s
       #   redirect:  # false  # String, a list of strings, a dictionary, or a list of dictionaries -- Can alternatively be set to 'false' to disable 'proxy_redirect' or 'default' to use default values
       #     original: http://upstream:port/two/  # Required when using 'replacement'
@@ -661,7 +661,11 @@ nginx_config_http_template:
           proxy:
           locations:
             - location: /
-              # proxy: /usr/share/nginx/html; index index.html index.htm;
+              proxy:
+                pass: http://127.0.0.1  # Available only in the 'location' context
+                pass_header: Date  # String or a list of strings
+                pass_request_body: false  # Boolean
+                pass_request_headers: true  # Boolean
             - location: ^~ /test/ 
               # proxy: 192.164.244
             - location: ^~ /test2/ 

@@ -234,7 +234,6 @@ server {
 {% if server['locations'] is defined %}
 {% for location in server['locations'] %}
     location {{ location['location'] }} {
-      return 404;
 {% if location['core'] is defined %}
 {% from 'http/core.j2' import core with context %}
 {% filter indent(8) %}
