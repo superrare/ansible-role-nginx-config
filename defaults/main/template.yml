@@ -660,13 +660,17 @@ nginx_config_http_template:
         - core:
           proxy:
           locations:
+            ### Forward all requests to the ipfs node, serving images on the internal ip port 8080
             - location: /
               proxy:
                 pass: http://10.132.0.36:8080
-            - location: ^~ /test/ 
-              # proxy: 192.164.244
-            - location: ^~ /test2/ 
-              # proxy: return 404
+            ### Use this format to 404 an IPFS ID
+            - location: ^~ /ipfs/Qmau322MS7V9U2C4K1Sq2gRudf75cUuzoDacxp5KMCHij3
+              core:
+                error_page:
+                  code: 404
+                  response: 404
+                  uri: /404.html
           blockCIDs:
             - CID: ^~ /QmASDsdfkasdfljsa/
             - CID: ^~ /TRRTER/
