@@ -197,22 +197,22 @@ nginx_config_http_template:
         # lingering_close: true  # Can be set to 'true', 'false' or 'always'
         # lingering_time: 30s
         # lingering_timeout: 5s
-        listen:  # Available only in the 'server' context
-          - address: 0.0.0.0  # Can also be a unix path
-            port: 80
-            default_server: true  # Boolean
-            ssl: false  # Boolean
-            http2: false  # Boolean
-            spdy: false  # Boolean
-            proxy_protocol: false  # Boolean
-            fastopen: 12  # Number
-            backlog: 511  # Number
-            rcvbuf: 512
-            sndbuf: 512
-            deffered: false  # Boolean
-            bind: false  # Boolean
-            ipv6only: false  # Boolean
-            reuseport: false  # Boolean
+        # listen:  # Available only in the 'server' context
+        #   - address: 0.0.0.0  # Can also be a unix path
+        #     port: 80
+        #     default_server: true  # Boolean
+        #     ssl: false  # Boolean
+        #     http2: false  # Boolean
+        #     spdy: false  # Boolean
+        #     proxy_protocol: false  # Boolean
+        #     fastopen: 12  # Number
+        #     backlog: 511  # Number
+        #     rcvbuf: 512
+        #     sndbuf: 512
+        #     deffered: false  # Boolean
+        #     bind: false  # Boolean
+        #     ipv6only: false  # Boolean
+        #     reuseport: false  # Boolean
             # so_keepalive:  # false  # Can alternatively be set to a 'boolean'
             #   keepidle: 30m
             #   keepintvl: 5
@@ -502,9 +502,10 @@ nginx_config_http_template:
       #   ssl_trusted_certificate: /path/to/file
       #   ssl_verify: false  # Boolean
       #   ssl_verify_depth: 1
+      # NOTE: Access seems important
       access:  # Configure HTTP access
-        allow: localhost  # String or a list of strings
-        deny: 192.168.1.100  # String or a list of strings
+        # allow: localhost  # String or a list of strings
+        # deny: 192.168.1.100  # String or a list of strings
       # auth_basic:  # Configure basic auth
       #   realm: false  # Set to 'false' to set auth_basic to 'off' -- otherwise, you can specify a 'realm'
       #   user_file: /path/to/file
@@ -619,7 +620,7 @@ nginx_config_http_template:
             buffer: 1m
             gzip: 5  # Number -- Can alternatively be set to 'true'
             flush: 10h
-            if: $loggable
+            # if: $loggable
         error:  # /var/log/nginx/error.log  # String, a list of strings, a dictionary, or a list of dictionaries. The 'file' variable is only required when setting a 'level'. This directive originally belongs to the NGINX core module, but we are making an exception.
           file: /var/log/nginx/error.log  # Required
           level: notice
