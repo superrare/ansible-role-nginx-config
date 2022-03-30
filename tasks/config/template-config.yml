@@ -75,6 +75,8 @@
   loop: "{{ nginx_config_http_template }}"
   when: nginx_config_http_template_enable | bool
 
+### NOTE: Here we generate the default.conf for http requests
+### template file is located at /templates/http/default.conf.j2
 - name: Dynamically generate NGINX HTTP config files
   template:
     src: "{{ item.template_file | default('http/default.conf.j2') }}"
