@@ -659,13 +659,13 @@ nginx_config_http_template:
       servers:  # All previous modules are also available (when allowed) in the 'servers' and 'locations' contexts.
         - core:
             # I think the server name goes here
-            # server_name: "terraform-333d0.superrare.co www.terraform-333d0.superrare.co"  # String or a list of strings -- Available only in the 'server' context
+            server_name: terraform-17ac2.superrare.co  # String or a list of strings -- Available only in the 'server' context
           proxy:
           locations:
             ### Forward all requests to the ipfs node, serving images on the internal ip port 8080
             - location: /
               proxy:
-                pass: http://10.132.0.36:8080
+                pass: http://10.128.0.14:8080
             ### Use this format to 404 an IPFS ID
             - location: ^~ /ipfs/Qmau322MS7V9U2C4K1Sq2gRudf75cUuzoDacxp5KMCHij3
               core:
