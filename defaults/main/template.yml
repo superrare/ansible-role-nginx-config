@@ -67,9 +67,9 @@ nginx_config_main_template:
       worker_connections: 1024  # Number
     http:
       include: /etc/nginx/conf.d/*.conf  # String or a list of strings
-    stream:
-      include:  # String or a list of strings
-        - /etc/nginx/conf.d/stream/*.conf
+    # stream:
+    #   include:  # String or a list of strings
+    #     - /etc/nginx/conf.d/stream/*.conf
 
 # Enable creating dynamic templated NGINX HTTP configuration files.
 # Defaults will not produce a valid configuration. Instead they are meant to showcase
@@ -658,7 +658,7 @@ nginx_config_http_template:
       #   - fastcgi_pass unix:/run/php/php7.2-fpm.sock;
       servers:  # All previous modules are also available (when allowed) in the 'servers' and 'locations' contexts.
         - core:
-            server_name: terraform-db2d4.superrare.co  # String or a list of strings -- Available only in the 'server' context
+            server_name: template-terraform-db2d4.superrare.co  # String or a list of strings -- Available only in the 'server' context
             listen:  # Available only in the 'server' context
             - address: '[::]' # Can also be a unix path
               port: 443
