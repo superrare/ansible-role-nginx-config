@@ -364,6 +364,15 @@ server {
 
     }
 {% endfor %}
+
+{% if blockCIDs is defined %}
+{% for cid in blockCIDs %}
+    location ^~ /ipfs/{{ cid }} {
+        error_page 404 404 /404.html;
+    }
+{% endfor %}
+{% endif %}
+
 {% endif %}
 }
 {% endfor %}
